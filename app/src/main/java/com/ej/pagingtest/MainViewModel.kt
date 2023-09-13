@@ -10,7 +10,10 @@ import kotlinx.coroutines.flow.Flow
 
 class MainViewModel : ViewModel() {
     val items : Flow<PagingData<User>> = Pager(
-        config = PagingConfig(pageSize = 30),
+        config = PagingConfig(
+            pageSize = 30,
+            initialLoadSize = 30,
+        ),
         pagingSourceFactory = {
             MyPagingSource()
         }
